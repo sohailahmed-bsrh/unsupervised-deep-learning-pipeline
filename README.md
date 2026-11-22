@@ -12,7 +12,7 @@
 
 High-dimensional unlabelled data obscures underlying cluster structures and patterns without dimensionality reduction.
 
-This project provides an end-to-end, reproducible implementation engineered to solve this challenge through verified data transformations, robust algorithms, and production-ready architecture.
+This project provides an end-to-end, reproducible implementation engineered to solve this challenge through verified data transformations, reliable algorithms, and production-ready architecture.
 
 ---
 
