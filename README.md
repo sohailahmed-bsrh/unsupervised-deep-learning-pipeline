@@ -10,7 +10,7 @@
 
 ## Executive Summary & Problem Statement
 
-Over 80% of enterprise data is unlabelled, unstructured, and high-dimensional. Supervised learning techniques fail in scenarios where ground truth annotations are prohibitively expensive, scarce, or unknown. Organizations require robust unsupervised learning architectures capable of uncovering latent patterns, clustering natural cohorts, and isolating anomalous events.
+Over 80% of enterprise data is unlabelled, unstructured, and high-dimensional. Supervised learning techniques fail in scenarios where ground truth annotations are prohibitively expensive, scarce, or unknown. Organizations require rigorous unsupervised learning architectures capable of uncovering latent patterns, clustering natural cohorts, and isolating anomalous events.
 
 This repository implements an end-to-end **Unsupervised Machine Learning and Deep Learning Pipeline**. It bridges classical statistical dimensionality reduction (**PCA**, **t-SNE**, **K-Means**, **GMM**) with modern neural architectures (**Deep Autoencoders**) for latent feature discovery and anomaly isolation.
 
@@ -36,7 +36,7 @@ This repository implements an end-to-end **Unsupervised Machine Learning and Dee
                       [High-Dimensional Unlabelled Dataset]
                                         │
                                         ▼
-             [Feature Standardization & Robust Outlier Scaling]
+             [Feature Standardization & Rigorous Outlier Scaling]
                                         │
          ┌──────────────────────────────┼──────────────────────────────┐
          ▼                              ▼                              ▼
@@ -49,7 +49,7 @@ This repository implements an end-to-end **Unsupervised Machine Learning and Dee
 ```
 
 ### Step 1: Preprocessing & Scaling
-High-dimensional distance metrics are distorted by variable feature magnitudes. Features are scaled using `StandardScaler` and `RobustScaler` to ensure zero-mean and unit variance.
+High-dimensional distance metrics are distorted by variable feature magnitudes. Features are scaled using `StandardScaler` and `RigorousScaler` to ensure zero-mean and unit variance.
 
 ### Step 2: Dimensionality Reduction via PCA & t-SNE
 Performs Principal Component Analysis (PCA) to calculate eigenvalues and eigenvectors of the covariance matrix. Generates scree plots demonstrating cumulative explained variance ratios. Employs t-Distributed Stochastic Neighbor Embedding (t-SNE) for non-linear manifold visualization.
