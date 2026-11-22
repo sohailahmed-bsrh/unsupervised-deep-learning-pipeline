@@ -99,3 +99,25 @@ Developed by **Sohail Ahmed** — Full Stack AI Engineer & Machine Learning Spec
 - **Portfolio:** [sohail.devsil.com](https://sohail.devsil.com)
 - **GitHub:** [@sohailahmed-bsrh](https://github.com/sohailahmed-bsrh)
 - **Email:** [sohail.bsrh@gmail.com](mailto:sohail.bsrh@gmail.com)
+
+---
+
+## Author & Contact Information
+
+<table width="100%" align="center">
+  <tr>
+    <td align="center" style="padding: 20px;">
+      <h3>Sohail Ahmed</h3>
+      <p><strong>Full-Stack Artificial Intelligence & Computer Vision Engineer</strong></p>
+      <p>
+        <a href="https://sohail.devsil.com"><img src="https://img.shields.io/badge/Live_Portfolio-sohail.devsil.com-0052FF?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio"/></a>
+        <a href="https://github.com/sohailahmed-bsrh"><img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
+        <a href="https://linkedin.com/in/sohail-ahmed-dev"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+        <a href="mailto:sohail.bsrh@gmail.com"><img src="https://img.shields.io/badge/Email-Contact_Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
+      </p>
+      <p><em>Available for technical roles in Artificial Intelligence, Computer Vision, and Full-Stack Engineering.</em></p>
+      <hr style="border: 0; height: 1px; background: #30363d; margin: 15px 0;">
+      <small>Distributed under the MIT License.</small>
+    </td>
+  </tr>
+</table>
