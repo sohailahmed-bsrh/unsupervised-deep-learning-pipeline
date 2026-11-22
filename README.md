@@ -1,123 +1,114 @@
-# Unsupervised Representation Learning and Deep Clustering
+# Unsupervised Machine Learning & Deep Learning Pipeline
 
-> Comparative unsupervised machine learning pipeline for clustering and dimensionality reduction.
-
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github)](https://github.com/sohailahmed-bsrh/unsupervised-deep-learning-pipeline)
-[![Live Showcase](https://img.shields.io/badge/Live-Showcase-0A66C2?style=flat-square&logo=googlechrome)](https://sohail.devsil.com/projects.html)
-[![Author](https://img.shields.io/badge/Author-Sohail%20Ahmed-20BEFF?style=flat-square)](https://sohail.devsil.com)
-
----
-
-## Overview
-
-High-dimensional unlabelled data obscures underlying cluster structures and patterns without dimensionality reduction.
-
-This project provides an end-to-end, reproducible implementation engineered to solve this challenge through verified data transformations, reliable algorithms, and production-ready architecture.
+<p align="center">
+  <a href="https://sohail.devsil.com"><strong>Portfolio</strong></a> | 
+  <a href="https://github.com/sohailahmed-bsrh"><strong>GitHub Profile</strong></a> | 
+  <a href="https://github.com/sohailahmed-bsrh/unsupervised-deep-learning-pipeline"><strong>Source Repository</strong></a>
+</p>
 
 ---
 
-## Key Features
+## Executive Summary & Problem Statement
 
-- Principal Component Analysis (PCA) and t-SNE projection for manifold visualization
-- K-Means and Hierarchical Agglomerative clustering with elbow-method validation
-- Deep neural autoencoder architecture for non-linear latent feature compression
-- Silhouette score analysis measuring cluster cohesion and separation
+Over 80% of enterprise data is unlabelled, unstructured, and high-dimensional. Supervised learning techniques fail in scenarios where ground truth annotations are prohibitively expensive, scarce, or unknown. Organizations require robust unsupervised learning architectures capable of uncovering latent patterns, clustering natural cohorts, and isolating anomalous events.
+
+This repository implements an end-to-end **Unsupervised Machine Learning and Deep Learning Pipeline**. It bridges classical statistical dimensionality reduction (**PCA**, **t-SNE**, **K-Means**, **GMM**) with modern neural architectures (**Deep Autoencoders**) for latent feature discovery and anomaly isolation.
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/sohailahmed-bsrh/myportfolio/main/assets/images/thumbnail/unsupervised-ml-deep-learning.jpeg" width="650" alt="Unsupervised Machine Learning & Deep Learning"/>
+  <p><em>Latent space representation, manifold learning, and deep autoencoder anomaly detection.</em></p>
+</div>
 
 ---
 
-## System Architecture
+## Real-World Industry Applications
 
-```mermaid
-flowchart TD
-    HighDimData[High-Dimensional Unlabelled Data] --> PCA[PCA Linear Projection]
-    HighDimData --> Autoencoder[Deep Autoencoder Compression]
-    PCA --> Clustering[K-Means & Hierarchical Clustering]
-    Autoencoder --> LatentSpace[Latent Space Representation]
-    LatentSpace --> Clustering
-    Clustering --> Silhouette[Silhouette Score Validation]
-    Clustering --> ClusterMap[2D Cluster Visualization]
+- **Customer Behavioral Segmentation**: Identifies organic buyer personas from unlabelled transactional history to optimize marketing spend.
+- **Financial Fraud & Anomaly Detection**: Employs deep autoencoder reconstruction error thresholds to flag fraudulent transactions without historical fraud labels.
+- **Genomic & High-Dimensional Data Compression**: Compresses multi-thousand gene expression profiles into orthogonal components via PCA and t-SNE.
+- **Network Intrusion Detection**: Flags zero-day cyber threats deviating significantly from normal latent network traffic distributions.
+
+---
+
+## Technical Architecture & Engineering Walkthrough
+
+```
+                      [High-Dimensional Unlabelled Dataset]
+                                        │
+                                        ▼
+             [Feature Standardization & Robust Outlier Scaling]
+                                        │
+         ┌──────────────────────────────┼──────────────────────────────┐
+         ▼                              ▼                              ▼
+[Dimensionality Reduction]      [Cohort Clustering]          [Deep Autoencoder]
+   (PCA & t-SNE Manifold)      (K-Means & GMM Latents)       (Bottleneck Compression)
+         │                              │                              │
+         ▼                              ▼                              ▼
+[Orthogonal Variance Vectors]    [Optimal K Validation]       [Reconstruction Loss]
+(Elbow Variance Plots)           (Silhouette & Davies-Bouldin) (Anomaly Thresholding)
 ```
 
----
+### Step 1: Preprocessing & Scaling
+High-dimensional distance metrics are distorted by variable feature magnitudes. Features are scaled using `StandardScaler` and `RobustScaler` to ensure zero-mean and unit variance.
 
-## Technology Stack
+### Step 2: Dimensionality Reduction via PCA & t-SNE
+Performs Principal Component Analysis (PCA) to calculate eigenvalues and eigenvectors of the covariance matrix. Generates scree plots demonstrating cumulative explained variance ratios. Employs t-Distributed Stochastic Neighbor Embedding (t-SNE) for non-linear manifold visualization.
 
-| Technology | Version / Spec | Role in Architecture |
-| :--- | :--- | :--- |
-| **TensorFlow / Keras** | `2.12+` | Deep autoencoder training and latent space extraction |
-| **Scikit-learn** | `1.3+` | PCA, K-Means clustering, and silhouette evaluation |
-| **Pandas & NumPy** | `2.0+` | Data normalization and array operations |
-| **Matplotlib** | `3.7+` | Cluster scatter plots and scree plots |
+### Step 3: Optimal Cluster Validation
+Executes K-Means and Gaussian Mixture Models (GMM) clustering. Determines the optimal cluster count $(k)$ through mathematical consensus: Elbow Method (Inertia), Silhouette Coefficients, and Davies-Bouldin Index.
 
----
+### Step 4: Deep Autoencoder Construction
+Constructs a symmetrical neural autoencoder:
+- **Encoder**: Progressively compresses feature dimensions into a compact bottleneck latent space.
+- **Decoder**: Symmetrically reconstructs original feature vectors from the compressed latent representation.
 
-## Repository Structure
-
-```text
-unsupervised-deep-learning-pipeline/
-|-- notebooks/
-|   `-- Unsupervised_ML_&_Deep_Learning.ipynb
-|-- data/
-|-- .gitignore
-|-- requirements.txt
-`-- README.md
-```
+### Step 5: Reconstruction Error Anomaly Detection
+Calculates Mean Squared Reconstruction Error (MSE) between original and reconstructed vectors. Data points with reconstruction loss exceeding statistical percentiles (95th / 99th percentile) are flagged as anomalous outliers.
 
 ---
 
-## Installation and Execution
+## Technology Stack & Implementation Specifications
 
-### Prerequisites
-- Python 3.10 or higher
-- Git version control
-- Virtual environment manager (`venv`)
+| Component | Technology | Version | Architectural Function |
+| :--- | :--- | :--- | :--- |
+| **Deep Learning** | TensorFlow / Keras | 2.15+ | Bottleneck autoencoder construction and training |
+| **Unsupervised ML** | Scikit-Learn | 1.3+ | PCA, t-SNE, K-Means, GMM, Silhouette evaluation |
+| **Matrix Computation** | NumPy / SciPy | Latest | Covariance computation and distance matrix generation |
+| **Data Ingestion** | Pandas | 2.x | Tabular parsing, missing value imputation |
+| **Visualization** | Seaborn / Matplotlib | 3.8+ | 2D/3D cluster projections and reconstruction error distributions |
 
-### Setup Instructions
-1. Clone the repository:
+---
+
+## Installation & Execution Guide
+
 ```bash
 git clone https://github.com/sohailahmed-bsrh/unsupervised-deep-learning-pipeline.git
 cd unsupervised-deep-learning-pipeline
-```
-
-2. Configure environment and dependencies:
-```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# Windows: venv\Scriptsctivate | Unix: source venv/bin/activate
 pip install -r requirements.txt
 jupyter notebook notebooks/
 ```
 
 ---
 
-## Interface and Verification
-The system produces verifiable execution logs, prediction matrices, or interactive browser interfaces depending on the target mode. Verify operation by executing the commands specified above or inspecting the demonstration notebooks.
-
----
-
-## Author and Contact
-Developed by **Sohail Ahmed** — Full Stack AI Engineer & Machine Learning Specialist.
-- **Portfolio:** [sohail.devsil.com](https://sohail.devsil.com)
-- **GitHub:** [@sohailahmed-bsrh](https://github.com/sohailahmed-bsrh)
-- **Email:** [sohail.bsrh@gmail.com](mailto:sohail.bsrh@gmail.com)
-
----
-
 ## Author & Contact Information
 
-<table width="100%" align="center">
+<table width="100%">
   <tr>
-    <td align="center" style="padding: 20px;">
+    <td width="150" align="center" valign="middle">
+      <img src="https://avatars.githubusercontent.com/u/231165170?v=4" width="120" style="border-radius: 50%;" alt="Sohail Ahmed"/>
+    </td>
+    <td>
       <h3>Sohail Ahmed</h3>
-      <p><strong>Full-Stack Artificial Intelligence & Computer Vision Engineer</strong></p>
+      <p><strong>Senior Software Engineer & AI Systems Architect</strong></p>
+      <p>Specializing in Full-Stack AI Application Development, Computer Vision, Deep Learning Pipelines, and Scalable Automation Architectures.</p>
       <p>
-        <a href="https://sohail.devsil.com"><img src="https://img.shields.io/badge/Live_Portfolio-sohail.devsil.com-0052FF?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio"/></a>
-        <a href="https://github.com/sohailahmed-bsrh"><img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
-        <a href="https://linkedin.com/in/sohail-ahmed-dev"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-        <a href="mailto:sohail.bsrh@gmail.com"><img src="https://img.shields.io/badge/Email-Contact_Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
+        <a href="https://sohail.devsil.com"><strong>Portfolio Website</strong></a> | 
+        <a href="https://github.com/sohailahmed-bsrh"><strong>GitHub Profile</strong></a> | 
+        <a href="https://www.linkedin.com/in/sohail-ahmed-546314316/"><strong>LinkedIn</strong></a> | 
+        <a href="mailto:se906403@gmail.com"><strong>Email Contact</strong></a>
       </p>
-      <p><em>Available for technical roles in Artificial Intelligence, Computer Vision, and Full-Stack Engineering.</em></p>
-      <hr style="border: 0; height: 1px; background: #30363d; margin: 15px 0;">
-      <small>Distributed under the MIT License.</small>
     </td>
   </tr>
 </table>
